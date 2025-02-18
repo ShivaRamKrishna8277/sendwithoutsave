@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Without Save</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div>
+        <div id="logo_desc_container">
+          <img src="assets/logo.png" alt="logo" id="logo" />
+          <p>
+            SendWithoutSave lets you quickly start a conversation with any phone
+            number without saving it. Simply enter the phone number, and we'll
+            redirect you directly to a new chat, so you can send messages or
+            media instantly!
+          </p>
+        </div>
+        <div id="input_container">
+          <div class="phone-input-container">
+            <input
+              type="number"
+              maxlength="10"
+              inputmode="numeric"
+              class="mobile-number"
+              placeholder="Enter mobile number"
+              id="phoneNumber"
+            />
+            <img src="assets/logo_icon.png" alt="" id="send_button" onclick="sendMessage()">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function sendMessage() {
+        let phone = document.getElementById("phoneNumber").value;
+
+        if (phone.trim() === "") {
+          alert("Please enter a phone number!");
+          return;
+        }
+
+        let whatsappUrl = `https://wa.me/${phone}`;
+        window.open(whatsappUrl, "_blank");
+      }
+    </script>
+  </body>
+</html>
